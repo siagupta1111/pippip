@@ -6,6 +6,45 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
+// ---------- DRAWING TOOL ----------
+// Layer that will store the drawn corridor
+const drawnItems = new L.FeatureGroup();
+map.addLayer(drawnItems);
+
+// Configure the drawing control – we only allow a single polyline (straight line)
+const drawControl = new L.Control.Draw({
+  draw: {
+    polygon: false,
+    rectangle: false,
+    circle: false,
+    marker: false,
+    circlemarker: false,
+    polyline: {
+      shapeOptions: {
+        color: '#6FAF5F',
+        weight: 5
+      },
+      metric: true,
+      repeatMode: false
+    }
+  },
+  edit: {
+    featureGroup: drawnItems,
+    edit: false,
+    remove: false
+  }
+});
+map.addControl(drawControl);
+
+// When the user finishes drawing, keep only that line
+map.on(L.Draw.Event.CREATED, function (e) {
+  const layer = e.layer;
+  drawnItems.clearLayers();      // ensure only one line at a time
+  drawnItems.addLayer(layer);
+  // Save the GeoJSON for later (PDF generation, length calc, etc.)
+  window.corridorGeoJSON = layer.toGeoJSON();
+});
+
 // Placeholder – later we’ll add line‑drawing logic
 
 // Helper – format today's date
