@@ -1,31 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <title>Pip Pip – Insect‑Corridor Mapper</title>
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"/>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+  
+  <link rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
+  
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <h1>Pip-Pip</h1>
-  <p>Draw a green corridor, then download the ordinance.</p>
 
-  <div id="map" style="height: 500px;"></div>
+<body>
+  <h1>Pip Pip</h1>
+  <p>Draw a green corridor, then download the ordinance PDF.</p>
+
+  <div id="map" style="height:500px;"></div>
 
   <button id="downloadBtn">Download PDF</button>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="script.js"></script>
   
-  <div style="page-break-before:always; margin-top:30mm;">
-    <p>Signed by: ________________________</p>
+  <div id="pdfTemplate" style="display:none; width:210mm; padding:20mm; font-family:Arial;">
+    <h2 style="color:#6FAF5F;">Insect‑Corridor Preservation Ordinance</h2>
+
+    <p><strong>Applicant:</strong> <span id="applicantName">[Your Name]</span></p>
+    <p><strong>Date:</strong> <span id="todayDate"></span></p>
+
+    <p><strong>Location (coordinates):</strong></p>
+    <pre id="coordsBox"
+         style="background:#f4f4f4; padding:5px; white-space:pre-wrap;"></pre>
+
+    <p><strong>Estimated corridor length:</strong> <span id="lengthBox"></span></p>
+
+    <p style="margin-top:30mm;">
+      I, the undersigned, request that the Noida Development Authority
+      recognise and preserve the above‑identified insect corridor as a
+      protected green strip.
+    </p>
+
+    <p>Signature: ________________________</p>
     <p>Date: _____________________________</p>
-    <p>Contact: ___________________________</p>
+
+    
+    <div style="page-break-before:always; margin-top:30mm;">
+      <p>Signed by: ________________________</p>
+      <p>Date: _____________________________</p>
+      <p>Contact (phone/email): ________________________</p>
+    </div>
   </div>
-</div> 
-  
+
+  <script src="script.js"></script>
 </body>
 </html>
