@@ -1,5 +1,26 @@
-body {font-family: Arial, sans-serif; margin: 1rem;}
-h1 {color:#6FAF5F;}
-#map {border: 2px solid #6FAF5F; margin-top: 0.5rem;}
-button {margin-top: 0.5rem; padding: 0.5rem 1rem; background:#6FAF5F; color:#fff; border:none; cursor:pointer;}
-button:hover {background:#5a9e4c;}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 1rem;
+  line-height: 1.5;
+}
+h1 {
+  color: #6FAF5F;
+}
+#map {
+  border: 2px solid #6FAF5F;
+  margin-top: 0.5rem;
+}
+button {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #6FAF5F;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  background: #5a9e4c;
+}
+pre {
+  font-size: 0.9rem;
+}
