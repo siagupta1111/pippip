@@ -1,0 +1,25 @@
+# --- Node / npm (if you ever add a build step) ---
+node_modules/
+package-lock.json
+dist/
+build/
+
+# --- OS‑specific junk ---
+.DS_Store          # macOS Finder metadata
+Thumbs.db          # Windows thumbnail cache
+Desktop.ini
+
+# --- IDE / editor leftovers ---
+.vscode/           # VS Code workspace settings
+.idea/             # JetBrains IDEs (WebStorm, IntelliJ, PyCharm …)
+*.sublime-workspace
+*.sublime-project
+*.code-workspace   # VS Code multi‑folder workspace files
+*.project          # generic Eclipse/NetBeans project files
+*.classpath        # Eclipse classpath files
+*.iml              # IntelliJ module files
+
+# --- Optional: temporary files you might generate locally ---
+*.log
+*.tmp
+*.bak
